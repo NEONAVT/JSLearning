@@ -1,22 +1,45 @@
-"use strict";
+/* Задание на урок:
 
-const firstSide = +prompt("Введите длину первой стороны")
-const secondSide = +prompt("Введите длину второй стороны")
-const thirdSide = +prompt("Введите длину третьей стороны")
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
 
-if (firstSide + secondSide > thirdSide 
-    && firstSide + thirdSide > secondSide 
-    && secondSide + thirdSide > firstSide) {
-    if (firstSide == secondSide && firstSide == thirdSide) {
-        console.log("Это равносторонний треугольник")
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
+
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
     }
-    else if (firstSide == secondSide && firstSide != thirdSide) {
-        console.log("Это равнобедренный треугольник")
-    }
-    else {
-        console.log("Это разносторонний треугольник")
-    }
-}
-else {
-    console.log("Не треугольник")
-}
+
+Проверить, чтобы все работало без ошибок в консоли */
+
+'use strict';
+
+const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+
+for (let i = 0; i < 2; i++) {
+    const lastMovie = prompt("Один из последних просмотренных фильмов?");
+    const rateMovie = prompt("На сколько оцените его?");
+
+    personalMovieDB.movies[lastMovie] = rateMovie;
+};
+
+
+console.log(personalMovieDB)
